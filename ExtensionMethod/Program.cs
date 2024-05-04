@@ -20,17 +20,25 @@ namespace ExtensionMethod
     }
     static class injectedMethodClass
     {
-        public static void Fun3(this Program program)
+        public static void Fun3(this Program program, int i)
         {
-            Console.WriteLine("this is third claass method of injected class");
+            Console.WriteLine("this is third claass method of injected class "+i);
         }
+        public static bool getcompareValue(this int i,int b)
+        {
+            return b > i;
+        }
+
     }
     class ExtentionMethodExce
     { 
         static void Main()
         {
             Program p = new Program();
-            p.Fun3();
+            p.Fun3(10);
+            int i = 30;
+            bool result = i.getcompareValue(20);
+            Console.WriteLine(result);
             Console.ReadLine();
         }
     }
